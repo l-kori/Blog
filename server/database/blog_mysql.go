@@ -13,9 +13,10 @@ import (
 var db *sql.DB
 
 func Initmysql() {
+	var err error
 	if db == nil {
-		db, _ = sql.Open("mysql", "root:123456@tcp(129.204.49.126:3307)/Blog?charset=utf8")
-		fmt.Println(db)
+		db, err = sql.Open("mysql", "root:123456@tcp(129.204.49.126:3307)/Blog?charset=utf8")
+		fmt.Println(db,err,"...")
 	}
 }
 
