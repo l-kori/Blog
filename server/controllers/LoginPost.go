@@ -33,7 +33,6 @@ func LoginPost(c *gin.Context){
 		c.String(http.StatusNotFound, err.Error())
 		return
 	}
-	//c.String(http.StatusOK, signedToken)
 
 	//判断账号密码是否正确 如果不存在，返回0，如果存在，返回其他
 	err1 :=models.QueryUserWithParam(username,utils.MD5(password))
