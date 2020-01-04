@@ -16,11 +16,11 @@ func InitRouter() *gin.Engine {
 
 	{
 		router.POST("/registerPost", controllers.RegisterPost)
-		//router.GET("/exit",controllers.ExitGet)
-		//router.GET("/",controllers.HomeGet)
+		router.GET("/exit", controllers.ExitGet)
+		router.GET("/", controllers.Home)
 		//router.GET("/register",controllers.RegisterGet)
 		////router.POST("/pwd",controllers.RegisterPost)
-		router.POST("/loginpost",controllers.LoginPost)
+		router.POST("/loginpost", controllers.LoginPost)
 	}
 
 	//v1 := router.Group("/article")
