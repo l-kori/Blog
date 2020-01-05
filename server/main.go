@@ -9,7 +9,6 @@ import (
 func main() {
 	database.Initmysql()
 	router := routers.InitRouter()
-
 	router.Run()
 
 }

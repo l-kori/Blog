@@ -13,25 +13,14 @@ import (
 	"time"
 )
 
-//func GetSession(c *gin.Context) bool{
-//	session := sessions.Default(c)
-//	loginuser := session.Get("loginuser")
-//	fmt.Println(loginuser)
-//	if loginuser != nil{
-//		return true
-//	}else {
-//		return false
-//	}
-//
 //}
-
 
 //处理注册
 func RegisterPost(c *gin.Context) {
 	//获取表单信息
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	fmt.Println(username,password)
+	fmt.Println(username, password)
 
 	//注册之前先判断该用户名是否已经被注册，如果已经注册，返回错误
 	id := models.QueryUserWithUsername(username)
