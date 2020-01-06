@@ -7,6 +7,7 @@ package models
 import (
 	"Blog/server/database"
 	"fmt"
+	"time"
 )
 
 type Article struct {
@@ -31,7 +32,7 @@ func QueryArticleWightID(id string) int {
 
 //插入一篇文章
 func InsertArticle(article Article) (int64, error) {
-	return database.ModifyDB("insert into aerticle(title,content,createtime) value (?,?,?)", article.title, article.content, article.Createtime)
+	return database.ModifyDB("insert into aerticle(title,content,createtime) value (?,?,?)", article.Title, article.Content, time.Now().Unix())
 }
 
 //删除文章

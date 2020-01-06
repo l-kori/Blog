@@ -1,8 +1,7 @@
 package controllers
 
 import (
-	"Blog/server/models"
-	"net/http"
+	"Blog/server/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,11 +12,6 @@ func Home(c *gin.Context) {
 	//登出后，修改token
 	token := c.Query("token")
 
-	//先检查数据库是否存在token数据
-	err := models.QueryTokenWightCon(username, token)
-	if err > 0 {
-		c.JSON(http.StatusOK, gin.H{"code": 200, "message": "用户已登录", "username": username, "token": token})
-	} else {
-		c.JSON(http.StatusOK, gin.H{"code": 0, "massage": "用户未登录"}) //不存在用户token
-	}
+	//先检查数据库是否存在token数据以及token存在时间
+	utils.QueryToken(c, username, token)
 }

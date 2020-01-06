@@ -2,7 +2,8 @@ package controllers
 
 import (
 	"Blog/server/models"
-	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,14 +13,16 @@ func ExitGet(c *gin.Context) {
 	token := c.Query("token")
 
 	//先检查数据库是否存在token数据
-	err := models.QueryTokenWightCon(username, token)
+	err := models.QueryTokenWihtCon(username)
 	//如果存在，则去删除token
 	if err > 0 {
 		err := models.DeleteTokenWithUsername(username, token)
-		fmt.Println(err)
-
+		if err != nil {
+			c.JSON(http.StatusOK, gin.H{"code": 0, "massage": "退出失败"})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"code": 200, "massage": "退出成功"})
+		}
 	} else {
-		fmt.Println("用户已退出") //token不存在
+		c.JSON(http.StatusOK, gin.H{"code": 0, "massage": "未登录"}) //token不存在
 	}
-
 }

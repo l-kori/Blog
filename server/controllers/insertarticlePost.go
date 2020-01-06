@@ -21,10 +21,10 @@ func insertarticle(c *gin.Context) {
 	titile := c.PostForm("titile")
 	content := c.PostForm("content")
 	username := c.PostForm("username")
-	token_id := c.PostForm("token")
+	// token_id := c.PostForm("token")
 
 	//检查是否登录，如果登录，则插入
-	err := models.QueryTokenWightCon(username, token_id)
+	err := models.QueryTokenWihtCon(username)
 	if err > 0 {
 		article := models.Article{0, titile, content, time.Now().Unix()}
 		_, err := models.InsertArticle(article)

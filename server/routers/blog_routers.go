@@ -19,10 +19,10 @@ func InitRouter() *gin.Engine {
 		router.POST("/loginpost", controllers.LoginPost)
 	}
 
-	v1 := router.Group("/article")
-	{
-		v1.POST("/insertarticle", controllers.insertarticlePost)
-	}
+	// v1 := router.Group("/article")
+	// {
+	// 	v1.POST("/insertarticle", controllers.insertarticle)
+	// }
 
 	return router
 

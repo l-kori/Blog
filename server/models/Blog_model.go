@@ -7,6 +7,7 @@ package models
 import (
 	"Blog/server/database"
 	"fmt"
+	"time"
 )
 
 type User struct {
@@ -22,7 +23,7 @@ type User struct {
 //插入
 func InsertUser(user User) (int64, error) {
 	return database.ModifyDB("insert into users(username,password,status,createtime) values (?,?,?,?)",
-		user.Username, user.Password, user.Status, user.Createtime)
+		user.Username, user.Password, user.Status, time.Now().Unix())
 }
 
 //按条件查询

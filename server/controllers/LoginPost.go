@@ -8,9 +8,11 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
+	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 func LoginPost(c *gin.Context) {
@@ -21,18 +23,18 @@ func LoginPost(c *gin.Context) {
 	token_id := username + id
 	//判断账号密码是否正确 如果不存在，返回0，如果存在，返回其他
 	err := models.QueryUserWithParam(username, utils.MD5(password))
-	err1 := models.QueryTokenWightCon(username, token_id)
-	fmt.Println(err1)
 	//判断账号密码是否正确
 	if err > 0 {
 		//判断是否存在token
+		err1 := models.QueryTokenWihtCon(username)
+		fmt.Println(err1)
 		if err1 > 0 {
 			fmt.Println("-------Token存在")
 			c.JSON(http.StatusOK, gin.H{"code": 0, "message": "用户已登录"})
 		} else {
 			//插入
 			fmt.Println("------Token不存在")
-			token := models.Token{username, token_id}
+			token := models.Token{username, token_id, time.Now().Unix()}
 			_, err := models.InsertToken(token)
 			if err != nil {
 				//插入token失败
