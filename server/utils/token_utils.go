@@ -23,7 +23,7 @@ func QueryToken(c *gin.Context, username string, token string) {
 			c.JSON(http.StatusOK, gin.H{"code": 200, "message": "用户已登录", "username": username, "token": token})
 
 		}
-
+		
 	} else {
 		c.JSON(http.StatusOK, gin.H{"code": 0, "massage": "用户未登录"}) //不存在用户token
 	}
