@@ -9,6 +9,6 @@ import (
 func main() {
 	database.Initmysql()
 	router := routers.InitRouter()
-	router.Run()
+	router.Run(":9090")
 
 }
