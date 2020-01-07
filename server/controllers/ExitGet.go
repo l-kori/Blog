@@ -13,7 +13,7 @@ func ExitGet(c *gin.Context) {
 	token_id := c.Query("token")
 
 	//先检查数据库是否存在token数据
-	err := models.QueryTokenWihtCon(username, token_id)
+	err := models.QueryTokenWithParam(username)
 	//如果存在，则去删除token
 	if err > 0 {
 		err := models.DeleteTokenWithUsername(username, token_id)

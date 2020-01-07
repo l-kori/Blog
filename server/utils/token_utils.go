@@ -9,9 +9,9 @@ import (
 )
 
 func QueryToken(c *gin.Context, username string, token_id string) {
-	err := models.QueryTokenWihtCon(username, token_id)
+	err := models.QueryTokenWithParam(username)
 	if err > 0 {
-		token_due_time := models.QueryToken_due_timeWithusername(username)
+		token_due_time := models.QueryToken_due_timeWithUsername(username)
 		now_token_due_time := time.Now().Unix()
 		token_time_count := now_token_due_time - token_due_time
 		//如果相差时间大于24小时 则删除token，并提示已退出
