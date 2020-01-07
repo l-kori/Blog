@@ -30,7 +30,7 @@ func LoginPost(c *gin.Context) {
 		fmt.Println(err1)
 		if err1 > 0 {
 			fmt.Println("-------Token存在")
-			c.JSON(http.StatusOK, gin.H{"code": 0, "message": "用户已登录"})
+			c.JSON(http.StatusOK, gin.H{"code": 0, "message": "登录成功"})
 		} else {
 			//插入
 			fmt.Println("------Token不存在")
