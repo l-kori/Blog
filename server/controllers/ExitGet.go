@@ -10,13 +10,13 @@ import (
 func ExitGet(c *gin.Context) {
 	username := c.Query("username")
 	//登出后，修改token
-	token := c.Query("token")
+	token_id := c.Query("token")
 
 	//先检查数据库是否存在token数据
-	err := models.QueryTokenWihtCon(username)
+	err := models.QueryTokenWihtCon(username, token_id)
 	//如果存在，则去删除token
 	if err > 0 {
-		err := models.DeleteTokenWithUsername(username, token)
+		err := models.DeleteTokenWithUsername(username, token_id)
 		if err != nil {
 			c.JSON(http.StatusOK, gin.H{"code": 0, "massage": "退出失败"})
 		} else {

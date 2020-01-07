@@ -26,11 +26,11 @@ func LoginPost(c *gin.Context) {
 	//判断账号密码是否正确
 	if err > 0 {
 		//判断是否存在token
-		err1 := models.QueryTokenWihtCon(username)
+		err1 := models.QueryTokenWihtCon(username, token_id)
 		fmt.Println(err1)
 		if err1 > 0 {
 			fmt.Println("-------Token存在")
-			c.JSON(http.StatusOK, gin.H{"code": 0, "message": "登录成功"})
+			c.JSON(http.StatusOK, gin.H{"code": 200, "message": "登录成功"})
 		} else {
 			//插入
 			fmt.Println("------Token不存在")

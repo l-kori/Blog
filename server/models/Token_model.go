@@ -24,8 +24,8 @@ func QueryTokenWithUsername(username string) int {
 }
 
 //查询token记录
-func QueryTokenWihtCon(username string) int {
-	sql := fmt.Sprintf("select username from token where username = '%s'", username)
+func QueryTokenWihtCon(username string, token_id string) int {
+	sql := fmt.Sprintf("select username from token where username = '%s' and token_id = '%s'", username, token_id)
 	fmt.Println(sql)
 	row := database.QueryRowDB(sql)
 	id := 0
