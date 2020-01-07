@@ -15,7 +15,7 @@ func QueryToken(c *gin.Context, username string, token_id string) {
 		now_token_due_time := time.Now().Unix()
 		token_time_count := now_token_due_time - token_due_time
 		//如果相差时间大于24小时 则删除token，并提示已退出
-		if token_time_count > 50 { //86400
+		if token_time_count > 86400 { //86400
 			err := models.DeleteTokenWithUsername(username, token_id)
 			fmt.Println(err)
 			c.JSON(http.StatusOK, gin.H{"code": 200, "message": "用户已退出"})
