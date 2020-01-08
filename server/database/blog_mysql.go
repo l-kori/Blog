@@ -16,7 +16,7 @@ func Initmysql() {
 	var err error
 	if db == nil {
 		db, err = sql.Open("mysql", "root:123456@tcp(129.204.49.126:3307)/Blog?charset=utf8")
-		fmt.Println(db,err,"...")
+		fmt.Println(db, err, "...")
 	}
 }
 
@@ -38,4 +38,10 @@ func ModifyDB(sql string, args ...interface{}) (int64, error) {
 //查询
 func QueryRowDB(sql string) *sql.Row {
 	return db.QueryRow(sql)
+}
+
+//查询所有
+func QueryAllRowDB(sql string) *sql.Rows {
+	rows, _ := db.Query(sql)
+	return rows
 }

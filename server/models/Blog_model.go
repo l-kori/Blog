@@ -37,13 +37,23 @@ func QueryUserWightCon(con string) int {
 }
 
 //根据用户名查询id
-func QueryUserWithUsername(username string) int {
+func QueryUser_idWithUsername(username string) int {
 	sql := fmt.Sprintf("where username='%s'", username)
 	return QueryUserWightCon(sql)
 }
 
 //根据用户名和密码，查询id
-func QueryUserWithParam(username, password string) int {
+func QueryUser_idWithParam(username, password string) int {
 	sql := fmt.Sprintf("where username='%s' and password='%s'", username, password)
 	return QueryUserWightCon(sql)
+}
+
+//根据id查询用户所有数据
+func QueryUser_allWithId(id int) string {
+	sql := fmt.Sprintf("select username from user where id = '%d", id)
+	fmt.Println(sql)
+	row := database.QueryRowDB(sql)
+	username := ""
+	row.Scan(&username)
+	return username
 }

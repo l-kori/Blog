@@ -18,7 +18,7 @@ func InitRouter() *gin.Engine {
 	{
 		router.POST("/registerPost", controllers.RegisterPost)
 		router.GET("/exit", controllers.ExitGet)
-		router.GET("/", controllers.Home)
+		router.POST("/", controllers.Home)
 		router.POST("/loginpost", controllers.LoginPost)
 	}
 

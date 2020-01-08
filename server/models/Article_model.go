@@ -20,14 +20,32 @@ type Article struct {
 
 //--------------数据库操作-----------------
 
+//查询所有文章标题及内容
+func QueryArticle_content() [][]string {
+	sql := fmt.Sprintf("select * from article")
+	fmt.Println(sql)
+	rows := database.QueryAllRowDB(sql)
+	var article_content [][]string
+	for rows.Next() {
+		id := ""
+		title := ""
+		content := ""
+		createtime := ""
+		rows.Scan(&id, &title, &content, &createtime)
+		article_content = append(article_content, []string{id, title, content, createtime})
+	}
+	return article_content
+
+}
+
 //根据文章ID查询内容
-func QueryArticleWightID(id string) int {
-	sql := fmt.Sprintf("select * from article where id='%s'", id)
+func QueryArticle_contentWightId(id int) string {
+	sql := fmt.Sprintf("select content from article where id='%d'", id)
 	fmt.Println(sql)
 	row := database.QueryRowDB(sql)
-	id1 := 0
-	row.Scan(&id)
-	return id1
+	article_content := ""
+	row.Scan(&article_content)
+	return article_content
 }
 
 //插入一篇文章

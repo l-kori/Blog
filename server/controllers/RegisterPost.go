@@ -23,7 +23,7 @@ func RegisterPost(c *gin.Context) {
 	fmt.Println(username, password)
 
 	//注册之前先判断该用户名是否已经被注册，如果已经注册，返回错误
-	id := models.QueryUserWithUsername(username)
+	id := models.QueryUser_idWithUsername(username)
 	if id > 0 {
 		c.JSON(http.StatusOK, gin.H{"code": 0, "message": "用户名已经存在"})
 		return
