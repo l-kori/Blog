@@ -14,16 +14,24 @@ type Token struct {
 //按条件查询id
 func QueryTokenWightCon(con string) int {
 	sql := fmt.Sprintf("select id from token %s", con)
-	fmt.Println(sql)
+	// fmt.Println(sql)
 	row := database.QueryRowDB(sql)
 	id := 0
 	row.Scan(&id)
 	return id
 }
 
-//根据用户名和密码，查询id
+//根据用户名和token查询id
+func QueryIdWithToken_id(username string, token_id string) int {
+	sql := fmt.Sprintf("where username='%s' and token_id = '%s'", username, token_id)
+	fmt.Println(sql)
+	return QueryTokenWightCon(sql)
+}
+
+//根据用户名和密码，查询token
 func QueryTokenWithParam(username string) int {
 	sql := fmt.Sprintf("where username='%s'", username)
+	fmt.Println(sql)
 	return QueryTokenWightCon(sql)
 }
 

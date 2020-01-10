@@ -21,6 +21,7 @@ func InitRouter() *gin.Engine {
 		router.POST("/", controllers.Home)
 		router.POST("/loginpost", controllers.LoginPost)
 		router.POST("/createArticle", controllers.CreateArticle)
+		router.POST("/deletearticle", controllers.DeleteArticle)
 	}
 
 	// v1 := router.Group("/article")

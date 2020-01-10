@@ -62,7 +62,8 @@ func InsertArticle(article Article) (int64, error) {
 }
 
 //删除文章
-func DeleteArticleWithID(id int) error {
-	_, err := database.ModifyDB("delete from article where id = '%s'", id)
+func DeleteArticleWithID(article_id string) error {
+	// fmt.Println(article_id)
+	_, err := database.ModifyDB("delete from article where id = ?", article_id)
 	return err
 }
