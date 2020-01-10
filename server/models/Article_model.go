@@ -11,7 +11,6 @@ import (
 )
 
 type Article struct {
-	Id        int    //文章ID
 	Title     string //文章标题
 	Content   string //文章内容
 	Ceatetime int64  //创建时间
@@ -48,12 +47,22 @@ func QueryArticle_contentWightId(id int) string {
 	return article_content
 }
 
+// //插入一篇文章
+// func InsertArticle1(title, content string) error {
+// 	sql := fmt.Sprintf("insert into article(title,content,createtime) value ('%s','%s')", title, content, time.Now().Unix())
+// 	fmt.Println(sql)
+// 	row := database.QueryRowDB(sql)
+
+// 	return err
+// }
+
 //插入一篇文章
 func InsertArticle(article Article) (int64, error) {
-	return database.ModifyDB("insert into aerticle(title,content,createtime) value (?,?,?)", article.Title, article.Content, time.Now().Unix())
+	return database.ModifyDB("insert into article(title,content,createtime) value (?,?,?)", article.Title, article.Content, time.Now().Unix())
 }
 
 //删除文章
-func DeleteArticleWithID(id int) (int64, error) {
-	return database.ModifyDB("delete from article where id = '%s'", id)
+func DeleteArticleWithID(id int) error {
+	_, err := database.ModifyDB("delete from article where id = '%s'", id)
+	return err
 }
