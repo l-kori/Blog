@@ -28,13 +28,13 @@ func DeleteArticle(c *gin.Context) {
 			err := models.DeleteArticleWithID(article_id)
 			fmt.Println(err)
 			if err != nil {
-				c.JSON(0, gin.H{"massage": "文章删除失败"})
+				c.JSON(0, gin.H{"code": 0, "massage": "文章删除失败"})
 			} else {
-				c.JSON(200, gin.H{"massage": "文章删除成功"})
+				c.JSON(200, gin.H{"code": 200, "massage": "文章删除成功"})
 			}
 		}
 	} else {
-		c.JSON(0, gin.H{"massage": "用户已退出"}) //用户token不存在
+		c.JSON(0, gin.H{"code": 0, "massage": "用户已退出"}) //用户token不存在
 	}
 
 }
