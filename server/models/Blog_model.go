@@ -11,9 +11,11 @@ import (
 )
 
 type User struct {
-	Id         int
-	Username   string
-	Password   string
+	Id       int
+	Username string
+	Password string
+	// trades     string
+	// head_img   string
 	Status     int // 0 正常状态， 1删除
 	Createtime int64
 }

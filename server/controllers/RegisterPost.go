@@ -7,10 +7,10 @@ package controllers
 import (
 	"Blog/server/models"
 	"Blog/server/utils"
-	"fmt"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
 )
 
 //}
@@ -20,7 +20,9 @@ func RegisterPost(c *gin.Context) {
 	//获取表单信息
 	username := c.PostForm("username")
 	password := c.PostForm("password")
-	fmt.Println(username, password)
+	// trades := c.PostForm("trades")
+	// fileHeader, err := c.FormFile("head_img")
+	// fmt.Println(trades, fileHeader)
 
 	//注册之前先判断该用户名是否已经被注册，如果已经注册，返回错误
 	id := models.QueryUser_idWithUsername(username)

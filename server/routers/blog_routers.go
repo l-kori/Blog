@@ -16,12 +16,12 @@ func InitRouter() *gin.Engine {
 	router.Use(Cors())
 
 	{
-		router.POST("/registerPost", controllers.RegisterPost)
-		router.GET("/exit", controllers.ExitGet)
-		router.POST("/", controllers.Home)
-		router.POST("/loginpost", controllers.LoginPost)
-		router.POST("/createArticle", controllers.CreateArticle)
-		router.POST("/deletearticle", controllers.DeleteArticle)
+		router.POST("/registerPost", controllers.RegisterPost)   // 注册
+		router.GET("/exit", controllers.ExitGet)                 //退出
+		router.POST("/", controllers.Home)                       // 首页
+		router.POST("/loginpost", controllers.LoginPost)         //登录
+		router.POST("/createArticle", controllers.CreateArticle) //创建文章
+		router.POST("/deletearticle", controllers.DeleteArticle) //删除文章
 	}
 
 	// v1 := router.Group("/article")

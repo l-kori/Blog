@@ -3,6 +3,7 @@ package main
 import (
 	"Blog/server/database"
 	"Blog/server/routers"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
