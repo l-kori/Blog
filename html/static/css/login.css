@@ -1,0 +1,87 @@
+body {
+  background: #f5f5f5;
+}
+.login-form {
+  width: 730px;
+  height: 500px;
+  margin: 120px auto;
+  padding: 60px 20px 10px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-align: center;
+}
+.form-title {
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #212529;
+}
+.form-item {
+  position: relative;
+  display: flex;
+  width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+.form-item .iconfont {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  font-size: 30px;
+  color: #212529;
+}
+.form-item input {
+  width: 420px;
+  height: 52px;
+  margin-top: 20px;
+  padding: 0 60px;
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  font-size: 18px;
+  background: #f0f0f0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  color: #4c4c4c;
+}
+.form-item input::-webkit-input-placeholder {
+  /* WebKit browsers 适配谷歌 */
+  color: #d4d4d4;
+}
+.form-item input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 适配火狐 */
+  color: #d4d4d4;
+}
+.form-item input::-moz-placeholder {
+  /* Mozilla Firefox 19+ 适配火狐 */
+  color: #d4d4d4;
+}
+.form-item input:-ms-input-placeholder {
+  /* Internet Explorer 10+  适配ie*/
+  color: #d4d4d4;
+}
+.login-btn {
+  display: block;
+  width: 420px;
+  height: 52px;
+  margin: 40px auto;
+  border: 0;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fff;
+  background: #acacac;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.register {
+  font-size: 14px;
+  cursor: pointer;
+  color: #acacac;
+}

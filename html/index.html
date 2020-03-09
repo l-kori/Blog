@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="static/css/reset.css" />
+		<link rel="stylesheet" href="static/css/index.css" />
+		<title>首页</title>
+	</head>
+	<body>
+		<div class="index-wrapper clear">
+			<div class="left-side">
+				<img class="logo left-side-item" src="static/img/15.jpg" alt="" />
+				<div class="left-side-item blog-name">Kenny</div>
+				<div class="line"></div>
+				<div class="left-side-item blog-info">记录美好BLOG</div>
+				<div class="cate">
+					<span class="cate-item shu">6</span>
+					<span class="cate-item shu">7</span>
+					<span class="cate-item">8</span>
+				</div>
+			</div>
+			<div class="main">
+				<div class="main-title">最新文章</div>
+				<ul class="main-list"></ul>
+			</div>
+		</div>
+		<script src="./static/js/jquery.min.js"></script>
+		<script src="./static/js/template-web.js"></script>
+		<script src="./static/js/index.js"></script>
+		<script type="text/html" id="indexList">
+			 {{ each list v i }}
+			   <li class="list-item">
+			     <p class="post-title">{{ v[1]}}</p>
+			     <p class="post-content">{{ v[2] }}</p>
+			     <span class="create-time">{{ v[3] }}</span>
+			   </li>
+			{{ /each }}
+		</script>
+	</body>
+</html>
